@@ -1,0 +1,830 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>PRW Colocación | Instalación de Aberturas en CABA y AMBA</title>
+<meta name="description" content="Instalación profesional de aberturas de PVC y aluminio para fábricas, talleres y constructoras en CABA y AMBA. Equipos propios, +15 años de experiencia." />
+<!-- Reemplazar por el favicon real (isotipo del logo en .svg) -->
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          paper: '#FBFAF8',
+          mist: '#F3F1ED',
+          line: '#E6E3DD',
+          ink: '#201F1D',
+          slate: '#63625D',
+          signal: { 500:'#FF5A1F', 600:'#E24A12', 50:'#FFF1EA' },
+        },
+        fontFamily: {
+          display: ['"Plus Jakarta Sans"','sans-serif'],
+          body: ['"Inter"','sans-serif'],
+        },
+      }
+    }
+  }
+</script>
+<style>
+  html { scroll-behavior: smooth; }
+  ::selection { background: #FF5A1F; color: #fff; }
+  body { background:#FBFAF8; color:#201F1D; }
+
+  .reveal { opacity:0; transform: translateY(16px); transition: opacity .6s cubic-bezier(.16,1,.3,1), transform .6s cubic-bezier(.16,1,.3,1); }
+  .reveal.is-visible { opacity:1; transform: translateY(0); }
+
+  .hero-in { opacity:0; transform: translateY(12px); transition: opacity .65s cubic-bezier(.16,1,.3,1), transform .65s cubic-bezier(.16,1,.3,1); }
+  .hero-in.is-in { opacity:1; transform: translateY(0); }
+
+  a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible { outline: 2px solid #FF5A1F; outline-offset: 3px; }
+
+  /* Imagen con fallback si el archivo todavía no fue reemplazado */
+  .img-wrap { position:relative; overflow:hidden; background:#EFEDE8; }
+  .img-wrap img { width:100%; height:100%; object-fit:cover; display:block; transition: transform .5s cubic-bezier(.16,1,.3,1); }
+  .img-wrap .img-fallback {
+    position:absolute; inset:0; display:none; align-items:center; justify-content:center; flex-direction:column; gap:.4rem;
+    background:#EFEDE8; color:#A6A199; text-align:center; padding: 1rem;
+  }
+  .img-wrap.img-missing img { display:none; }
+  .img-wrap.img-missing .img-fallback { display:flex; }
+  .img-zoom:hover img, .img-zoom:focus-within img { transform: scale(1.045); }
+
+  .logo-wrap img { display:block; }
+  .logo-wrap.logo-missing img { display:none; }
+  .logo-wrap .logo-fallback { display:none; }
+  .logo-wrap.logo-missing .logo-fallback { display:flex; }
+
+  .marquee-track { animation: marquee 50s linear infinite; }
+  .marquee-track:hover { animation-play-state: paused; }
+  @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+  .stat-num { font-variant-numeric: tabular-nums; }
+
+  .step-dot { transition: border-color .25s ease, color .25s ease, box-shadow .25s ease; }
+  .step-node:hover .step-dot, .step-node:focus-within .step-dot { border-color:#FF5A1F; color:#FF5A1F; box-shadow: 0 0 0 4px #FFF1EA; }
+  .step-node:hover .step-title, .step-node:focus-within .step-title { color:#FF5A1F; }
+  .step-node { transition: transform .2s ease; }
+  .step-node:hover { transform: translateY(-2px); }
+
+  #waFloat { opacity:0; transform: translateY(10px) scale(.9); pointer-events:none; transition: opacity .35s ease, transform .35s ease; }
+  #waFloat.show { opacity:1; transform: translateY(0) scale(1); pointer-events:auto; }
+
+  select { appearance:none; -webkit-appearance:none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%2363625D' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E"); background-repeat:no-repeat; background-position: right .9rem center; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .reveal, .hero-in { opacity:1 !important; transform:none !important; }
+    .marquee-track { animation: none; }
+    .img-zoom:hover img { transform:none; }
+    #waFloat { transition:none; }
+  }
+</style>
+</head>
+<body class="font-body antialiased">
+
+<!-- ============ NAVBAR ============ -->
+<header id="navbar" class="fixed top-0 inset-x-0 z-50 bg-paper/90 backdrop-blur border-b border-transparent transition-shadow duration-300">
+  <nav class="max-w-6xl mx-auto px-5 sm:px-8 h-[64px] flex items-center justify-between">
+    <a href="#inicio" class="flex items-center gap-2.5 shrink-0" aria-label="PRW Colocación — inicio">
+      <span class="logo-wrap flex items-center">
+        <!-- Reemplazar por el logo oficial: assets/logo-prw.svg -->
+        <img src="assets/logo-prw.svg" alt="PRW Colocación" class="h-7 w-auto" onerror="this.parentElement.classList.add('logo-missing')" />
+        <span class="logo-fallback items-center gap-2.5">
+          <span class="w-8 h-8 rounded bg-signal-500 grid place-items-center shrink-0"><span class="font-display text-white text-[11px] font-bold">PRW</span></span>
+          <span class="font-display font-bold text-ink text-[15px] tracking-tight">Colocación</span>
+        </span>
+      </span>
+    </a>
+
+    <div class="hidden lg:flex items-center gap-8">
+      <a href="#inicio" class="relative text-[14px] text-slate hover:text-ink transition-colors group py-1">Inicio<span class="absolute left-0 -bottom-0.5 h-[1.5px] w-0 bg-signal-500 transition-all duration-300 group-hover:w-full"></span></a>
+      <a href="#servicios" class="relative text-[14px] text-slate hover:text-ink transition-colors group py-1">Servicios<span class="absolute left-0 -bottom-0.5 h-[1.5px] w-0 bg-signal-500 transition-all duration-300 group-hover:w-full"></span></a>
+      <a href="#obras" class="relative text-[14px] text-slate hover:text-ink transition-colors group py-1">Obras<span class="absolute left-0 -bottom-0.5 h-[1.5px] w-0 bg-signal-500 transition-all duration-300 group-hover:w-full"></span></a>
+      <a href="#proceso" class="relative text-[14px] text-slate hover:text-ink transition-colors group py-1">Proceso<span class="absolute left-0 -bottom-0.5 h-[1.5px] w-0 bg-signal-500 transition-all duration-300 group-hover:w-full"></span></a>
+      <a href="#contacto" class="relative text-[14px] text-slate hover:text-ink transition-colors group py-1">Contacto<span class="absolute left-0 -bottom-0.5 h-[1.5px] w-0 bg-signal-500 transition-all duration-300 group-hover:w-full"></span></a>
+      <a href="https://wa.me/5491164489161" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-signal-500 hover:bg-signal-600 text-white text-[13px] font-semibold px-4 py-2.5 rounded-full transition-colors">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.32 4.96L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.85 9.85 0 0 0 12.04 2m0 1.67a8.2 8.2 0 0 1 5.83 2.42 8.18 8.18 0 0 1 2.41 5.83c0 4.55-3.7 8.24-8.25 8.24a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.19-.31a8.18 8.18 0 0 1-1.26-4.38c0-4.55 3.7-8.25 8.24-8.25M8.53 6.85c-.16 0-.43.06-.66.31-.22.25-.87.85-.87 2.07 0 1.22.89 2.4 1.01 2.57.13.16 1.75 2.8 4.31 3.82 2.13.85 2.56.68 3.03.64.46-.04 1.5-.61 1.71-1.2s.21-1.09.15-1.2c-.06-.1-.23-.16-.48-.28s-1.5-.74-1.73-.82c-.23-.09-.4-.13-.57.13s-.66.82-.81.99-.3.19-.55.06c-.26-.12-1.07-.39-2.03-1.25-.75-.67-1.26-1.5-1.4-1.75-.15-.26-.02-.4.11-.52.11-.11.26-.3.38-.44.13-.15.17-.26.26-.43.08-.16.04-.31-.02-.43-.06-.13-.57-1.4-.79-1.91-.2-.5-.41-.43-.57-.44-.14-.01-.31-.01-.48-.01Z"/></svg>
+        WhatsApp
+      </a>
+    </div>
+
+    <button id="menuBtn" class="lg:hidden text-ink" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobileMenu">
+      <svg id="iconMenu" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>
+      <svg id="iconClose" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="hidden"><line x1="6" y1="6" x2="18" y2="18"/><line x1="6" y1="18" x2="18" y2="6"/></svg>
+    </button>
+  </nav>
+  <div id="mobileMenu" class="hidden lg:hidden bg-paper border-t border-line px-5 py-5 flex-col gap-1 max-h-0 overflow-hidden transition-[max-height] duration-300">
+    <a href="#inicio" class="block text-ink text-[15px] py-2.5 border-b border-line">Inicio</a>
+    <a href="#servicios" class="block text-ink text-[15px] py-2.5 border-b border-line">Servicios</a>
+    <a href="#obras" class="block text-ink text-[15px] py-2.5 border-b border-line">Obras</a>
+    <a href="#proceso" class="block text-ink text-[15px] py-2.5 border-b border-line">Proceso</a>
+    <a href="#contacto" class="block text-ink text-[15px] py-2.5">Contacto</a>
+    <a href="https://wa.me/5491164489161" target="_blank" rel="noopener noreferrer" class="mt-4 inline-flex items-center justify-center gap-2 bg-signal-500 text-white text-sm font-semibold px-4 py-3.5 rounded-full">Hablar por WhatsApp</a>
+  </div>
+</header>
+
+<!-- ============ 01 · HERO (compacto) ============ -->
+<section id="inicio" class="pt-[92px] sm:pt-[108px] pb-10 sm:pb-12 bg-paper">
+  <div class="max-w-6xl mx-auto px-5 sm:px-8 grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+    <div class="hero-in" data-hero style="transition-delay:0ms">
+      <p class="text-[12.5px] font-semibold uppercase tracking-[0.14em] text-signal-600 mb-3">
+        PRW Colocación · Instalación profesional de aberturas
+      </p>
+      <h1 class="font-display text-[2.1rem] sm:text-4xl lg:text-[2.65rem] leading-[1.08] font-extrabold text-ink">
+        Tu fábrica fabrica.<br /><span class="text-signal-500">Nosotros instalamos.</span>
+      </h1>
+      <p class="mt-4 text-slate text-[15.5px] sm:text-[17px] max-w-md leading-relaxed">
+        Instalación profesional de aberturas de PVC y aluminio para fábricas,
+        talleres y constructoras en CABA y AMBA.
+      </p>
+
+      <div class="mt-6 flex flex-wrap items-center gap-4">
+        <a href="https://wa.me/5491164489161" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2.5 bg-signal-500 hover:bg-signal-600 text-white font-semibold text-[14.5px] px-5.5 px-6 py-3.5 rounded-full transition-colors shadow-sm shadow-signal-500/20">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.32 4.96L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.85 9.85 0 0 0 12.04 2m0 1.67a8.2 8.2 0 0 1 5.83 2.42 8.18 8.18 0 0 1 2.41 5.83c0 4.55-3.7 8.24-8.25 8.24a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.19-.31a8.18 8.18 0 0 1-1.26-4.38c0-4.55 3.7-8.25 8.24-8.25M8.53 6.85c-.16 0-.43.06-.66.31-.22.25-.87.85-.87 2.07 0 1.22.89 2.4 1.01 2.57.13.16 1.75 2.8 4.31 3.82 2.13.85 2.56.68 3.03.64.46-.04 1.5-.61 1.71-1.2s.21-1.09.15-1.2c-.06-.1-.23-.16-.48-.28s-1.5-.74-1.73-.82c-.23-.09-.4-.13-.57.13s-.66.82-.81.99-.3.19-.55.06c-.26-.12-1.07-.39-2.03-1.25-.75-.67-1.26-1.5-1.4-1.75-.15-.26-.02-.4.11-.52.11-.11.26-.3.38-.44.13-.15.17-.26.26-.43.08-.16.04-.31-.02-.43-.06-.13-.57-1.4-.79-1.91-.2-.5-.41-.43-.57-.44-.14-.01-.31-.01-.48-.01Z"/></svg>
+          Hablar por WhatsApp
+        </a>
+        <a href="#obras" class="inline-flex items-center gap-1.5 text-ink text-[14.5px] font-medium border-b-2 border-ink/15 hover:border-signal-500 hover:text-signal-600 transition-colors pb-1 group">
+          Ver obras
+          <svg class="transition-transform group-hover:translate-x-0.5" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="hero-in relative" data-hero style="transition-delay:100ms">
+      <div class="img-wrap img-zoom rounded-2xl aspect-[16/11]">
+        <!-- Reemplazar por foto real de una obra de PRW: assets/hero-obra.jpg -->
+        <img src="assets/hero-obra.jpg" alt="Instalación de aberturas por PRW Colocación en obra" loading="eager" onerror="this.closest('.img-wrap').classList.add('img-missing')" />
+        <div class="img-fallback">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+          <span class="text-[11px] font-semibold uppercase tracking-wide">assets/hero-obra.jpg</span>
+        </div>
+      </div>
+      <span class="absolute bottom-4 right-4 bg-signal-500 text-white text-[11px] font-bold uppercase tracking-wide px-3.5 py-2 rounded-full shadow-sm shadow-signal-500/30">
+        CABA + AMBA
+      </span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 02 · PROPUESTA DE VALOR + DATOS ============ -->
+<section id="valor" class="bg-mist py-14 sm:py-16 border-y border-line">
+  <div class="max-w-6xl mx-auto px-5 sm:px-8">
+    <div class="reveal max-w-xl mb-9" data-reveal>
+      <h2 class="font-display text-2xl sm:text-[1.9rem] font-bold text-ink leading-tight">
+        Un equipo de instalación para que tu fábrica pueda crecer.
+      </h2>
+      <p class="text-slate text-[15px] mt-3 leading-relaxed">
+        PRW trabaja exclusivamente con fábricas, talleres, comercializadores y
+        constructoras que necesitan resolver la colocación de aberturas en obra.
+      </p>
+    </div>
+
+    <div class="reveal grid grid-cols-2 lg:grid-cols-4 border-t border-b border-line" id="statsRow" data-reveal style="transition-delay:60ms">
+      <div class="group py-6 lg:border-r border-line pr-4">
+        <p class="stat-num font-display text-3xl sm:text-4xl font-extrabold text-ink transition-transform group-hover:-translate-y-0.5" data-count="6" data-suffix="">0</p>
+        <p class="text-[12px] text-slate mt-1.5">Cuadrillas propias</p>
+        <span class="block h-[2px] w-6 bg-signal-500 mt-2.5 scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-300"></span>
+      </div>
+      <div class="group py-6 lg:border-r border-line pr-4 pl-4 lg:pl-6">
+        <p class="stat-num font-display text-3xl sm:text-4xl font-extrabold text-ink transition-transform group-hover:-translate-y-0.5" data-count="15" data-suffix="+"></p>
+        <p class="text-[12px] text-slate mt-1.5">Años de experiencia</p>
+        <span class="block h-[2px] w-6 bg-signal-500 mt-2.5 scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-300"></span>
+      </div>
+      <div class="group py-6 lg:border-r border-line pr-4 pl-4 lg:pl-6 border-t lg:border-t-0 border-line">
+        <p class="font-display text-3xl sm:text-4xl font-extrabold text-ink transition-transform group-hover:-translate-y-0.5">CABA+AMBA</p>
+        <p class="text-[12px] text-slate mt-1.5">Zona de operación</p>
+        <span class="block h-[2px] w-6 bg-signal-500 mt-2.5 scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-300"></span>
+      </div>
+      <div class="group py-6 pl-4 lg:pl-6 border-t lg:border-t-0 border-line">
+        <p class="stat-num font-display text-3xl sm:text-4xl font-extrabold text-ink transition-transform group-hover:-translate-y-0.5" data-count="2014" data-suffix="">0</p>
+        <p class="text-[12px] text-slate mt-1.5">Desde</p>
+        <span class="block h-[2px] w-6 bg-signal-500 mt-2.5 scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-300"></span>
+      </div>
+    </div>
+
+    <div class="reveal mt-7 flex flex-wrap gap-2.5" data-reveal style="transition-delay:120ms">
+      <span class="bg-white border border-line rounded-full px-4 py-2 text-[12.5px] font-medium text-ink">Movilidad propia</span>
+      <span class="bg-white border border-line rounded-full px-4 py-2 text-[12.5px] font-medium text-ink">Herramental profesional</span>
+      <span class="bg-white border border-line rounded-full px-4 py-2 text-[12.5px] font-medium text-ink">ART al día</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 03 · SERVICIOS ============ -->
+<section id="servicios" class="bg-paper py-14 sm:py-16">
+  <div class="max-w-6xl mx-auto px-5 sm:px-8">
+    <div class="reveal max-w-lg mb-8" data-reveal>
+      <p class="text-[13px] font-semibold uppercase tracking-[0.14em] text-signal-600 mb-2.5">Servicios</p>
+      <h2 class="font-display text-2xl sm:text-[1.9rem] font-bold text-ink leading-tight">Nos ocupamos de la instalación.</h2>
+    </div>
+
+    <div class="grid sm:grid-cols-3 gap-4">
+      <a href="#contacto" class="reveal group relative img-wrap img-zoom rounded-xl aspect-[4/5] block" data-reveal>
+        <!-- assets/servicio-instalacion.jpg -->
+        <img src="assets/servicio-instalacion.jpg" alt="Instalación en obra de aberturas PRW" loading="lazy" onerror="this.closest('.img-wrap').classList.add('img-missing')" />
+        <div class="img-fallback"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg><span class="text-[10px] font-semibold uppercase tracking-wide">servicio-instalacion.jpg</span></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-ink/85 via-ink/10 to-transparent"></div>
+        <div class="absolute inset-x-0 bottom-0 p-5 flex items-end justify-between gap-2">
+          <div>
+            <h3 class="font-display text-[15px] font-bold text-white leading-tight">Instalación en obra</h3>
+            <p class="text-white/75 text-[12.5px] mt-1 leading-snug">Colocación profesional de PVC y aluminio.</p>
+          </div>
+          <svg class="shrink-0 text-white transition-transform group-hover:translate-x-1" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </div>
+      </a>
+      <a href="#contacto" class="reveal group relative img-wrap img-zoom rounded-xl aspect-[4/5] block" data-reveal style="transition-delay:60ms">
+        <!-- assets/servicio-obra-nueva.jpg -->
+        <img src="assets/servicio-obra-nueva.jpg" alt="Instalación en obra nueva PRW" loading="lazy" onerror="this.closest('.img-wrap').classList.add('img-missing')" />
+        <div class="img-fallback"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg><span class="text-[10px] font-semibold uppercase tracking-wide">servicio-obra-nueva.jpg</span></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-ink/85 via-ink/10 to-transparent"></div>
+        <div class="absolute inset-x-0 bottom-0 p-5 flex items-end justify-between gap-2">
+          <div>
+            <h3 class="font-display text-[15px] font-bold text-white leading-tight">Obra nueva</h3>
+            <p class="text-white/75 text-[12.5px] mt-1 leading-snug">Residencial, edificios y desarrollos.</p>
+          </div>
+          <svg class="shrink-0 text-white transition-transform group-hover:translate-x-1" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </div>
+      </a>
+      <a href="#contacto" class="reveal group relative img-wrap img-zoom rounded-xl aspect-[4/5] block" data-reveal style="transition-delay:120ms">
+        <!-- assets/servicio-renovacion.jpg -->
+        <img src="assets/servicio-renovacion.jpg" alt="Renovación y recambio de aberturas PRW" loading="lazy" onerror="this.closest('.img-wrap').classList.add('img-missing')" />
+        <div class="img-fallback"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg><span class="text-[10px] font-semibold uppercase tracking-wide">servicio-renovacion.jpg</span></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-ink/85 via-ink/10 to-transparent"></div>
+        <div class="absolute inset-x-0 bottom-0 p-5 flex items-end justify-between gap-2">
+          <div>
+            <h3 class="font-display text-[15px] font-bold text-white leading-tight">Renovación y recambio</h3>
+            <p class="text-white/75 text-[12.5px] mt-1 leading-snug">Recambio de aberturas existentes.</p>
+          </div>
+          <svg class="shrink-0 text-white transition-transform group-hover:translate-x-1" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </div>
+      </a>
+    </div>
+
+    <p class="reveal text-[13px] text-slate/70 mt-5 max-w-lg" data-reveal style="transition-delay:180ms">
+      ¿La obra necesita elevación? Podemos recomendarte contactos de empresas
+      de elevación de confianza con las que trabajamos habitualmente.
+    </p>
+  </div>
+</section>
+
+<!-- ============ 04 · OBRAS ============ -->
+<section id="obras" class="bg-mist py-14 sm:py-16 border-y border-line">
+  <div class="max-w-6xl mx-auto px-5 sm:px-8">
+    <div class="reveal max-w-lg mb-8" data-reveal>
+      <p class="text-[13px] font-semibold uppercase tracking-[0.14em] text-signal-600 mb-2.5">Obras</p>
+      <h2 class="font-display text-2xl sm:text-[1.9rem] font-bold text-ink leading-tight mb-2">Obras realizadas.</h2>
+      <p class="text-slate text-[15px]">Instalaciones de PVC y aluminio en obras de CABA y AMBA.</p>
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 auto-rows-[220px] sm:auto-rows-[250px]" id="gallery">
+      <button data-img="assets/obra-01.jpg" data-caption="Instalación en obra — PRW" class="gallery-item reveal group img-wrap img-zoom rounded-xl lg:row-span-2 lg:h-full cursor-zoom-in text-left" data-reveal>
+        <img src="assets/obra-01.jpg" alt="Obra 01 — instalación de aberturas PRW" loading="lazy" onerror="this.closest('.img-wrap').classList.add('img-missing')" />
+        <div class="img-fallback"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg><span class="text-[11px] font-semibold uppercase tracking-wide">assets/obra-01.jpg</span></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-ink/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+      </button>
+      <button data-img="assets/obra-02.jpg" data-caption="Instalación en obra — PRW" class="gallery-item reveal group img-wrap img-zoom rounded-xl cursor-zoom-in text-left" data-reveal style="transition-delay:60ms">
+        <img src="assets/obra-02.jpg" alt="Obra 02 — instalación de aberturas PRW" loading="lazy" onerror="this.closest('.img-wrap').classList.add('img-missing')" />
+        <div class="img-fallback"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg><span class="text-[11px] font-semibold uppercase tracking-wide">assets/obra-02.jpg</span></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-ink/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+      </button>
+      <button data-img="assets/obra-03.jpg" data-caption="Instalación en obra — PRW" class="gallery-item reveal group img-wrap img-zoom rounded-xl cursor-zoom-in text-left" data-reveal style="transition-delay:120ms">
+        <img src="assets/obra-03.jpg" alt="Obra 03 — instalación de aberturas PRW" loading="lazy" onerror="this.closest('.img-wrap').classList.add('img-missing')" />
+        <div class="img-fallback"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg><span class="text-[11px] font-semibold uppercase tracking-wide">assets/obra-03.jpg</span></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-ink/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+      </button>
+      <button data-img="assets/obra-04.jpg" data-caption="Instalación en obra — PRW" class="gallery-item reveal group img-wrap img-zoom rounded-xl cursor-zoom-in text-left" data-reveal style="transition-delay:180ms">
+        <img src="assets/obra-04.jpg" alt="Obra 04 — instalación de aberturas PRW" loading="lazy" onerror="this.closest('.img-wrap').classList.add('img-missing')" />
+        <div class="img-fallback"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg><span class="text-[11px] font-semibold uppercase tracking-wide">assets/obra-04.jpg</span></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-ink/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+      </button>
+      <button data-img="assets/obra-05.jpg" data-caption="Instalación en obra — PRW" class="gallery-item reveal group img-wrap img-zoom rounded-xl lg:col-span-2 cursor-zoom-in text-left" data-reveal style="transition-delay:240ms">
+        <img src="assets/obra-05.jpg" alt="Obra 05 — instalación de aberturas PRW" loading="lazy" onerror="this.closest('.img-wrap').classList.add('img-missing')" />
+        <div class="img-fallback"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg><span class="text-[11px] font-semibold uppercase tracking-wide">assets/obra-05.jpg</span></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-ink/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- Lightbox con navegación -->
+<div id="lightbox" class="hidden fixed inset-0 z-[60] bg-ink/92 items-center justify-center p-5" role="dialog" aria-modal="true" aria-label="Vista ampliada de la obra">
+  <button id="lightboxClose" class="absolute top-5 right-5 text-white/80 hover:text-white" aria-label="Cerrar">
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="6" y1="6" x2="18" y2="18"/><line x1="6" y1="18" x2="18" y2="6"/></svg>
+  </button>
+  <button id="lightboxPrev" class="absolute left-3 sm:left-6 top-1/2 -translate-y-1/2 text-white/70 hover:text-white p-2" aria-label="Obra anterior">
+    <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 6l-6 6 6 6"/></svg>
+  </button>
+  <button id="lightboxNext" class="absolute right-3 sm:right-6 top-1/2 -translate-y-1/2 text-white/70 hover:text-white p-2" aria-label="Obra siguiente">
+    <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg>
+  </button>
+  <div class="img-wrap rounded-xl w-full max-w-2xl aspect-video">
+    <img id="lightboxImg" src="" alt="" onerror="this.closest('.img-wrap').classList.add('img-missing')" />
+    <div class="img-fallback"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg><span id="lightboxLabel" class="text-[12px] font-semibold uppercase tracking-wide"></span></div>
+  </div>
+</div>
+
+<!-- ============ 05 · CÓMO TRABAJAMOS (proceso + equipo fusionados) ============ -->
+<section id="proceso" class="bg-paper py-14 sm:py-16">
+  <div class="max-w-6xl mx-auto px-5 sm:px-8">
+    <div class="reveal max-w-lg mb-8" data-reveal>
+      <p class="text-[13px] font-semibold uppercase tracking-[0.14em] text-signal-600 mb-2.5">Cómo trabajamos</p>
+      <h2 class="font-display text-2xl sm:text-[1.9rem] font-bold text-ink leading-tight mb-2">Una metodología clara para cada obra.</h2>
+      <p class="text-slate text-[15px] leading-relaxed max-w-md">
+        Analizamos cada proyecto antes de comenzar y seguimos un proceso
+        ordenado de instalación, desde la preparación hasta la inspección final.
+      </p>
+    </div>
+
+    <!-- Desktop: timeline horizontal con línea de progreso -->
+    <div class="hidden lg:block relative mb-10" id="processDesktop">
+      <div class="absolute top-[21px] left-0 right-0 h-[2px] bg-line"></div>
+      <div id="processLineFill" class="absolute top-[21px] left-0 h-[2px] bg-signal-500 origin-left" style="transform: scaleX(0); width:100%;"></div>
+      <div class="grid grid-cols-7 gap-2 relative" id="processGridDesktop"></div>
+    </div>
+
+    <!-- Mobile/tablet: timeline vertical -->
+    <div class="lg:hidden relative pl-8 mb-10" id="processMobile">
+      <div class="absolute top-1 bottom-1 left-[15px] w-[2px] bg-line"></div>
+      <div class="space-y-6" id="processGridMobile"></div>
+    </div>
+
+    <!-- Detalles técnicos, en chips -->
+    <div class="reveal flex flex-wrap gap-2 mb-10" data-reveal>
+      <span class="bg-mist border border-line rounded-full px-3.5 py-1.5 text-[12px] text-slate">Nivelación</span>
+      <span class="bg-mist border border-line rounded-full px-3.5 py-1.5 text-[12px] text-slate">Aplomado</span>
+      <span class="bg-mist border border-line rounded-full px-3.5 py-1.5 text-[12px] text-slate">Fijación profesional</span>
+      <span class="bg-mist border border-line rounded-full px-3.5 py-1.5 text-[12px] text-slate">Espuma</span>
+      <span class="bg-mist border border-line rounded-full px-3.5 py-1.5 text-[12px] text-slate">Silicona neutra</span>
+      <span class="bg-mist border border-line rounded-full px-3.5 py-1.5 text-[12px] text-slate">Inspección final</span>
+    </div>
+
+    <!-- Equipo real en obra: integrado acá en vez de una sección aparte -->
+    <div class="grid sm:grid-cols-3 gap-4">
+      <div class="reveal img-wrap img-zoom rounded-xl aspect-[4/3] relative" data-reveal>
+        <!-- assets/equipo-01.jpg -->
+        <img src="assets/equipo-01.jpg" alt="Equipo de PRW preparando la obra" loading="lazy" onerror="this.closest('.img-wrap').classList.add('img-missing')" />
+        <div class="img-fallback"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg><span class="text-[10px] font-semibold uppercase tracking-wide">equipo-01.jpg</span></div>
+        <span class="absolute bottom-3 left-3 bg-white/95 text-ink text-[11px] font-bold uppercase tracking-wide px-3 py-1.5 rounded-full">Preparamos</span>
+      </div>
+      <div class="reveal img-wrap img-zoom rounded-xl aspect-[4/3] relative" data-reveal style="transition-delay:60ms">
+        <!-- assets/equipo-02.jpg -->
+        <img src="assets/equipo-02.jpg" alt="Equipo de PRW instalando en obra" loading="lazy" onerror="this.closest('.img-wrap').classList.add('img-missing')" />
+        <div class="img-fallback"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg><span class="text-[10px] font-semibold uppercase tracking-wide">equipo-02.jpg</span></div>
+        <span class="absolute bottom-3 left-3 bg-white/95 text-ink text-[11px] font-bold uppercase tracking-wide px-3 py-1.5 rounded-full">Instalamos</span>
+      </div>
+      <div class="reveal img-wrap img-zoom rounded-xl aspect-[4/3] relative" data-reveal style="transition-delay:120ms">
+        <!-- assets/equipo-03.jpg -->
+        <img src="assets/equipo-03.jpg" alt="Equipo de PRW controlando la instalación" loading="lazy" onerror="this.closest('.img-wrap').classList.add('img-missing')" />
+        <div class="img-fallback"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg><span class="text-[10px] font-semibold uppercase tracking-wide">equipo-03.jpg</span></div>
+        <span class="absolute bottom-3 left-3 bg-white/95 text-ink text-[11px] font-bold uppercase tracking-wide px-3 py-1.5 rounded-full">Controlamos</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 06 · SISTEMAS ============ -->
+<section id="sistemas" class="bg-mist py-12 sm:py-14 border-y border-line">
+  <div class="max-w-6xl mx-auto px-5 sm:px-8">
+    <div class="reveal max-w-lg mb-6" data-reveal>
+      <p class="text-[13px] font-semibold uppercase tracking-[0.14em] text-signal-600 mb-2.5">Sistemas</p>
+      <h2 class="font-display text-xl sm:text-2xl font-bold text-ink leading-tight mb-1.5">Trabajamos con múltiples sistemas.</h2>
+      <p class="text-slate text-[14px]">Experiencia en diferentes líneas de PVC y aluminio, adaptándonos al sistema especificado para cada proyecto.</p>
+    </div>
+  </div>
+  <div class="reveal overflow-hidden py-2" data-reveal>
+    <div class="marquee-track flex gap-10 whitespace-nowrap w-max">
+      <span class="font-display text-lg sm:text-xl font-bold text-ink/30 hover:text-signal-500 border-b-2 border-transparent hover:border-signal-500 transition-colors pb-1 cursor-default">Schüco</span>
+      <span class="font-display text-lg sm:text-xl font-bold text-ink/30 hover:text-signal-500 border-b-2 border-transparent hover:border-signal-500 transition-colors pb-1 cursor-default">Rehau</span>
+      <span class="font-display text-lg sm:text-xl font-bold text-ink/30 hover:text-signal-500 border-b-2 border-transparent hover:border-signal-500 transition-colors pb-1 cursor-default">Tecnocom</span>
+      <span class="font-display text-lg sm:text-xl font-bold text-ink/30 hover:text-signal-500 border-b-2 border-transparent hover:border-signal-500 transition-colors pb-1 cursor-default">Veka</span>
+      <span class="font-display text-lg sm:text-xl font-bold text-ink/30 hover:text-signal-500 border-b-2 border-transparent hover:border-signal-500 transition-colors pb-1 cursor-default">Royal</span>
+      <span class="font-display text-lg sm:text-xl font-bold text-ink/30 hover:text-signal-500 border-b-2 border-transparent hover:border-signal-500 transition-colors pb-1 cursor-default">Hidro</span>
+      <span class="font-display text-lg sm:text-xl font-bold text-ink/30 hover:text-signal-500 border-b-2 border-transparent hover:border-signal-500 transition-colors pb-1 cursor-default">A30</span>
+      <span class="font-display text-lg sm:text-xl font-bold text-ink/30 hover:text-signal-500 border-b-2 border-transparent hover:border-signal-500 transition-colors pb-1 cursor-default">Rotonda</span>
+      <span class="font-display text-lg sm:text-xl font-bold text-ink/30 hover:text-signal-500 border-b-2 border-transparent hover:border-signal-500 transition-colors pb-1 cursor-default">Módena</span>
+      <span class="font-display text-lg sm:text-xl font-bold text-ink/30 hover:text-signal-500 border-b-2 border-transparent hover:border-signal-500 transition-colors pb-1 cursor-default">Herrero</span>
+      <!-- duplicado para loop continuo -->
+      <span class="font-display text-lg sm:text-xl font-bold text-ink/30 hover:text-signal-500 border-b-2 border-transparent hover:border-signal-500 transition-colors pb-1 cursor-default">Schüco</span>
+      <span class="font-display text-lg sm:text-xl font-bold text-ink/30 hover:text-signal-500 border-b-2 border-transparent hover:border-signal-500 transition-colors pb-1 cursor-default">Rehau</span>
+      <span class="font-display text-lg sm:text-xl font-bold text-ink/30 hover:text-signal-500 border-b-2 border-transparent hover:border-signal-500 transition-colors pb-1 cursor-default">Tecnocom</span>
+      <span class="font-display text-lg sm:text-xl font-bold text-ink/30 hover:text-signal-500 border-b-2 border-transparent hover:border-signal-500 transition-colors pb-1 cursor-default">Veka</span>
+      <span class="font-display text-lg sm:text-xl font-bold text-ink/30 hover:text-signal-500 border-b-2 border-transparent hover:border-signal-500 transition-colors pb-1 cursor-default">Royal</span>
+      <span class="font-display text-lg sm:text-xl font-bold text-ink/30 hover:text-signal-500 border-b-2 border-transparent hover:border-signal-500 transition-colors pb-1 cursor-default">Hidro</span>
+      <span class="font-display text-lg sm:text-xl font-bold text-ink/30 hover:text-signal-500 border-b-2 border-transparent hover:border-signal-500 transition-colors pb-1 cursor-default">A30</span>
+      <span class="font-display text-lg sm:text-xl font-bold text-ink/30 hover:text-signal-500 border-b-2 border-transparent hover:border-signal-500 transition-colors pb-1 cursor-default">Rotonda</span>
+      <span class="font-display text-lg sm:text-xl font-bold text-ink/30 hover:text-signal-500 border-b-2 border-transparent hover:border-signal-500 transition-colors pb-1 cursor-default">Módena</span>
+      <span class="font-display text-lg sm:text-xl font-bold text-ink/30 hover:text-signal-500 border-b-2 border-transparent hover:border-signal-500 transition-colors pb-1 cursor-default">Herrero</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 07 · CONTACTO ============ -->
+<section id="contacto" class="bg-paper py-14 sm:py-16">
+  <div class="max-w-6xl mx-auto px-5 sm:px-8 grid lg:grid-cols-[0.85fr_1.15fr] gap-12">
+    <div class="reveal" data-reveal>
+      <p class="text-[13px] font-semibold uppercase tracking-[0.14em] text-signal-600 mb-2.5">Contacto</p>
+      <h2 class="font-display text-2xl sm:text-[1.9rem] font-bold text-ink leading-tight mb-3">Hablemos de tu obra.</h2>
+      <p class="text-slate text-[15px] leading-relaxed mb-7 max-w-sm">
+        Contanos qué sistema, ubicación y volumen de trabajo necesitás resolver.
+      </p>
+
+      <a href="https://wa.me/5491164489161" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2.5 bg-signal-500 hover:bg-signal-600 text-white font-bold text-[15px] px-7 py-4 rounded-full transition-colors mb-9">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.32 4.96L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.85 9.85 0 0 0 12.04 2m0 1.67a8.2 8.2 0 0 1 5.83 2.42 8.18 8.18 0 0 1 2.41 5.83c0 4.55-3.7 8.24-8.25 8.24a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.19-.31a8.18 8.18 0 0 1-1.26-4.38c0-4.55 3.7-8.25 8.24-8.25M8.53 6.85c-.16 0-.43.06-.66.31-.22.25-.87.85-.87 2.07 0 1.22.89 2.4 1.01 2.57.13.16 1.75 2.8 4.31 3.82 2.13.85 2.56.68 3.03.64.46-.04 1.5-.61 1.71-1.2s.21-1.09.15-1.2c-.06-.1-.23-.16-.48-.28s-1.5-.74-1.73-.82c-.23-.09-.4-.13-.57.13s-.66.82-.81.99-.3.19-.55.06c-.26-.12-1.07-.39-2.03-1.25-.75-.67-1.26-1.5-1.4-1.75-.15-.26-.02-.4.11-.52.11-.11.26-.3.38-.44.13-.15.17-.26.26-.43.08-.16.04-.31-.02-.43-.06-.13-.57-1.4-.79-1.91-.2-.5-.41-.43-.57-.44-.14-.01-.31-.01-.48-.01Z"/></svg>
+        Hablar por WhatsApp
+      </a>
+
+      <ul class="space-y-4 text-ink text-[14.5px] border-t border-line pt-6">
+        <li class="flex items-center gap-3">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#63625D" stroke-width="2"><path d="M17 2H7a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2z"/><path d="M12 18h.01"/></svg>
+          <a href="https://wa.me/5491164489161" target="_blank" rel="noopener noreferrer" class="hover:text-signal-600 transition-colors">+54 9 11 6448-9161</a>
+        </li>
+        <li class="flex items-center gap-3">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#63625D" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          <a href="https://www.instagram.com/prwcolocacion/" target="_blank" rel="noopener noreferrer" class="hover:text-signal-600 transition-colors">@prwcolocacion</a>
+        </li>
+        <li class="flex items-center gap-3">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#63625D" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 6l-10 7L2 6"/></svg>
+          <a href="mailto:prwcolocacion@gmail.com" class="hover:text-signal-600 transition-colors">prwcolocacion@gmail.com</a>
+        </li>
+        <li class="flex items-center gap-3">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#63625D" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span>CABA + AMBA</span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="reveal" data-reveal style="transition-delay:100ms">
+      <!-- Aviso de planillas de carpintería -->
+      <div class="flex items-start gap-3 bg-signal-50 border border-signal-500/30 rounded-xl px-5 py-4 mb-5">
+        <svg class="shrink-0 mt-0.5" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#E24A12" stroke-width="1.8"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 13h6M9 17h6"/></svg>
+        <div>
+          <p class="font-display text-[14px] font-bold text-ink">¿Tenés planillas de carpintería?</p>
+          <p class="text-slate text-[12.5px] leading-relaxed mt-1">
+            Completá tus datos y hacé clic en <strong>Enviar Consulta y Archivos</strong>.
+            Te redirigiremos automáticamente a WhatsApp con la información de tu
+            consulta cargada, para que puedas adjuntar tus planillas directamente
+            en el chat.
+          </p>
+        </div>
+      </div>
+
+      <form id="contactForm" class="bg-mist rounded-2xl border border-line p-6 sm:p-7">
+        <!-- Reemplazar por la Access Key real de Web3Forms (https://web3forms.com) -->
+        <input type="hidden" name="access_key" value="TU_WEB3FORMS_ACCESS_KEY">
+        <input type="hidden" name="subject" value="Nueva consulta desde la web — PRW Colocación">
+        <input type="checkbox" name="botcheck" class="hidden" style="display:none">
+
+        <div class="grid sm:grid-cols-2 gap-4">
+          <label class="block">
+            <span class="text-[12px] font-medium text-slate mb-1.5 block">Nombre y apellido *</span>
+            <input name="nombre" required type="text" class="w-full bg-white border border-line rounded-lg px-3.5 py-2.5 text-[14.5px] text-ink focus:outline-none focus:border-signal-500 transition-colors"/>
+          </label>
+          <label class="block">
+            <span class="text-[12px] font-medium text-slate mb-1.5 block">Empresa *</span>
+            <input name="empresa" required type="text" class="w-full bg-white border border-line rounded-lg px-3.5 py-2.5 text-[14.5px] text-ink focus:outline-none focus:border-signal-500 transition-colors"/>
+          </label>
+        </div>
+
+        <div class="grid sm:grid-cols-2 gap-4 mt-4">
+          <label class="block">
+            <span class="text-[12px] font-medium text-slate mb-1.5 block">WhatsApp / Teléfono *</span>
+            <input name="telefono" required type="tel" class="w-full bg-white border border-line rounded-lg px-3.5 py-2.5 text-[14.5px] text-ink focus:outline-none focus:border-signal-500 transition-colors"/>
+          </label>
+          <label class="block">
+            <span class="text-[12px] font-medium text-slate mb-1.5 block">Email *</span>
+            <input name="email" required type="email" class="w-full bg-white border border-line rounded-lg px-3.5 py-2.5 text-[14.5px] text-ink focus:outline-none focus:border-signal-500 transition-colors"/>
+          </label>
+        </div>
+
+        <div class="grid sm:grid-cols-2 gap-4 mt-4">
+          <label class="block">
+            <span class="text-[12px] font-medium text-slate mb-1.5 block">Tipo de obra</span>
+            <select name="tipo_obra" class="w-full bg-white border border-line rounded-lg px-3.5 py-2.5 text-[14.5px] text-ink focus:outline-none focus:border-signal-500 transition-colors">
+              <option value="Vivienda unifamiliar">Vivienda unifamiliar</option>
+              <option value="Vivienda multifamiliar">Vivienda multifamiliar</option>
+              <option value="Edificio">Edificio</option>
+              <option value="Local comercial">Local comercial</option>
+              <option value="Oficina">Oficina</option>
+              <option value="Obra industrial">Obra industrial</option>
+              <option value="Otro">Otro</option>
+            </select>
+          </label>
+          <label class="block">
+            <span class="text-[12px] font-medium text-slate mb-1.5 block">Tipo de aberturas</span>
+            <select name="tipo_abertura" class="w-full bg-white border border-line rounded-lg px-3.5 py-2.5 text-[14.5px] text-ink focus:outline-none focus:border-signal-500 transition-colors">
+              <option value="PVC">PVC</option>
+              <option value="Aluminio">Aluminio</option>
+              <option value="PVC y aluminio">PVC y aluminio</option>
+              <option value="No estoy seguro">No estoy seguro</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="grid sm:grid-cols-2 gap-4 mt-4">
+          <label class="block">
+            <span class="text-[12px] font-medium text-slate mb-1.5 block">Cantidad / metraje aproximado</span>
+            <input name="metraje" type="text" placeholder="Opcional" class="w-full bg-white border border-line rounded-lg px-3.5 py-2.5 text-[14.5px] text-ink placeholder:text-slate/40 focus:outline-none focus:border-signal-500 transition-colors"/>
+          </label>
+          <label class="block">
+            <span class="text-[12px] font-medium text-slate mb-1.5 block">¿Tenés planillas de carpintería?</span>
+            <select name="planillas" class="w-full bg-white border border-line rounded-lg px-3.5 py-2.5 text-[14.5px] text-ink focus:outline-none focus:border-signal-500 transition-colors">
+              <option value="no">No</option>
+              <option value="si">Sí</option>
+            </select>
+          </label>
+        </div>
+
+        <label class="block mt-4">
+          <span class="text-[12px] font-medium text-slate mb-1.5 block">Mensaje</span>
+          <textarea name="mensaje" rows="3" class="w-full bg-white border border-line rounded-lg px-3.5 py-2.5 text-[14.5px] text-ink focus:outline-none focus:border-signal-500 transition-colors resize-none"></textarea>
+        </label>
+
+        <button type="submit" id="submitBtn" class="mt-6 w-full sm:w-auto font-semibold text-[14px] bg-ink hover:bg-ink/90 text-white px-6 py-3.5 rounded-lg transition-colors inline-flex items-center justify-center gap-2">
+          Enviar Consulta y Archivos
+        </button>
+        <p id="formStatus" class="text-[12.5px] text-slate mt-3" role="status" aria-live="polite"></p>
+        <a id="formErrorWaBtn" href="https://wa.me/5491164489161" target="_blank" rel="noopener noreferrer" class="hidden mt-3 items-center justify-center gap-2.5 bg-signal-500 hover:bg-signal-600 text-white font-semibold text-[14px] px-6 py-3.5 rounded-full transition-colors w-full sm:w-auto">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.32 4.96L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.85 9.85 0 0 0 12.04 2m0 1.67a8.2 8.2 0 0 1 5.83 2.42 8.18 8.18 0 0 1 2.41 5.83c0 4.55-3.7 8.24-8.25 8.24a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.19-.31a8.18 8.18 0 0 1-1.26-4.38c0-4.55 3.7-8.25 8.24-8.25M8.53 6.85c-.16 0-.43.06-.66.31-.22.25-.87.85-.87 2.07 0 1.22.89 2.4 1.01 2.57.13.16 1.75 2.8 4.31 3.82 2.13.85 2.56.68 3.03.64.46-.04 1.5-.61 1.71-1.2s.21-1.09.15-1.2c-.06-.1-.23-.16-.48-.28s-1.5-.74-1.73-.82c-.23-.09-.4-.13-.57.13s-.66.82-.81.99-.3.19-.55.06c-.26-.12-1.07-.39-2.03-1.25-.75-.67-1.26-1.5-1.4-1.75-.15-.26-.02-.4.11-.52.11-.11.26-.3.38-.44.13-.15.17-.26.26-.43.08-.16.04-.31-.02-.43-.06-.13-.57-1.4-.79-1.91-.2-.5-.41-.43-.57-.44-.14-.01-.31-.01-.48-.01Z"/></svg>
+          Contactar por WhatsApp
+        </a>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="bg-ink py-10">
+  <div class="max-w-6xl mx-auto px-5 sm:px-8">
+    <div class="flex flex-col sm:flex-row sm:items-start justify-between gap-8">
+      <div>
+        <div class="logo-wrap flex items-center mb-3">
+          <!-- Reemplazar por assets/logo-prw-blanco.svg (versión clara del logo) -->
+          <img src="assets/logo-prw-blanco.svg" alt="PRW Colocación" class="h-7 w-auto" onerror="this.parentElement.classList.add('logo-missing')" />
+          <span class="logo-fallback items-center gap-2.5">
+            <span class="w-7 h-7 rounded bg-signal-500 grid place-items-center"><span class="font-display text-white text-[10px] font-bold">PRW</span></span>
+            <span class="font-display text-white text-[14px] font-bold">Colocación</span>
+          </span>
+        </div>
+        <p class="text-white/50 text-[13.5px]">Instalación profesional de aberturas.</p>
+        <p class="text-white/50 text-[13.5px] mt-1">CABA + AMBA</p>
+      </div>
+      <div class="flex gap-6 text-[13.5px]">
+        <a href="https://wa.me/5491164489161" target="_blank" rel="noopener noreferrer" class="text-white/70 hover:text-signal-500 transition-colors">WhatsApp</a>
+        <a href="https://www.instagram.com/prwcolocacion/" target="_blank" rel="noopener noreferrer" class="text-white/70 hover:text-signal-500 transition-colors">Instagram</a>
+        <a href="mailto:prwcolocacion@gmail.com" class="text-white/70 hover:text-signal-500 transition-colors">Email</a>
+      </div>
+    </div>
+    <p class="text-white/30 text-[12px] mt-9 pt-6 border-t border-white/10">© <span id="year"></span> PRW Colocación</p>
+  </div>
+</footer>
+
+<!-- Botón flotante de WhatsApp -->
+<a id="waFloat" href="https://wa.me/5491164489161" target="_blank" rel="noopener noreferrer" aria-label="Hablar por WhatsApp" class="fixed bottom-5 right-5 z-40 w-14 h-14 rounded-full bg-signal-500 hover:bg-signal-600 shadow-lg shadow-signal-500/30 grid place-items-center transition-colors">
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="white"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.32 4.96L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.85 9.85 0 0 0 12.04 2m0 1.67a8.2 8.2 0 0 1 5.83 2.42 8.18 8.18 0 0 1 2.41 5.83c0 4.55-3.7 8.24-8.25 8.24a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.19-.31a8.18 8.18 0 0 1-1.26-4.38c0-4.55 3.7-8.25 8.24-8.25M8.53 6.85c-.16 0-.43.06-.66.31-.22.25-.87.85-.87 2.07 0 1.22.89 2.4 1.01 2.57.13.16 1.75 2.8 4.31 3.82 2.13.85 2.56.68 3.03.64.46-.04 1.5-.61 1.71-1.2s.21-1.09.15-1.2c-.06-.1-.23-.16-.48-.28s-1.5-.74-1.73-.82c-.23-.09-.4-.13-.57.13s-.66.82-.81.99-.3.19-.55.06c-.26-.12-1.07-.39-2.03-1.25-.75-.67-1.26-1.5-1.4-1.75-.15-.26-.02-.4.11-.52.11-.11.26-.3.38-.44.13-.15.17-.26.26-.43.08-.16.04-.31-.02-.43-.06-.13-.57-1.4-.79-1.91-.2-.5-.41-.43-.57-.44-.14-.01-.31-.01-.48-.01Z"/></svg>
+</a>
+
+<script>
+  const WA_NUMBER = '5491164489161';
+
+  // --- Navbar shadow on scroll ---
+  const navbar = document.getElementById('navbar');
+  function onScroll() {
+    navbar.classList.toggle('shadow-[0_1px_0_0_rgba(0,0,0,0.06)]', window.scrollY > 8);
+    navbar.classList.toggle('border-line', window.scrollY > 8);
+  }
+  window.addEventListener('scroll', onScroll, { passive: true }); onScroll();
+
+  // --- Mobile menu ---
+  const menuBtn = document.getElementById('menuBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const iconMenu = document.getElementById('iconMenu');
+  const iconClose = document.getElementById('iconClose');
+  let menuOpen = false;
+  function setMenu(open) {
+    menuOpen = open;
+    menuBtn.setAttribute('aria-expanded', String(open));
+    if (open) {
+      mobileMenu.classList.remove('hidden');
+      mobileMenu.classList.add('flex');
+      requestAnimationFrame(() => { mobileMenu.style.maxHeight = mobileMenu.scrollHeight + 'px'; });
+    } else {
+      mobileMenu.style.maxHeight = '0px';
+      setTimeout(() => { if (!menuOpen) { mobileMenu.classList.add('hidden'); mobileMenu.classList.remove('flex'); } }, 300);
+    }
+    iconMenu.classList.toggle('hidden', open);
+    iconClose.classList.toggle('hidden', !open);
+  }
+  menuBtn.addEventListener('click', () => setMenu(!menuOpen));
+  mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setMenu(false)));
+
+  // --- Proceso: 7 pasos ---
+  const steps = [
+    ['01','Relevamiento','Verificación de cada hueco antes de instalar.'],
+    ['02','Recepción','Identificación y organización en obra.'],
+    ['03','Nivelación','Nivel y aplomado.'],
+    ['04','Fijación','Según sistema y condiciones de obra.'],
+    ['05','Sellado','Espuma y silicona neutra.'],
+    ['06','Terminaciones','Acristalado y regulación.'],
+    ['07','Inspección final','Verificación del funcionamiento.'],
+  ];
+  const processGridDesktop = document.getElementById('processGridDesktop');
+  steps.forEach(([n, title, text], i) => {
+    const node = document.createElement('div');
+    node.className = 'reveal step-node group text-center px-1';
+    node.setAttribute('data-reveal', '');
+    node.setAttribute('tabindex', '0');
+    node.style.transitionDelay = (i * 40) + 'ms';
+    node.innerHTML = `
+      <div class="step-dot mx-auto w-[24px] h-[24px] rounded-full bg-paper border-2 border-line flex items-center justify-center text-[10.5px] font-bold text-slate relative z-10">${n}</div>
+      <h3 class="step-title font-display text-[13px] font-bold text-ink mt-2.5 mb-1 transition-colors">${title}</h3>
+      <p class="text-slate text-[11.5px] leading-snug">${text}</p>`;
+    processGridDesktop.appendChild(node);
+  });
+  const processGridMobile = document.getElementById('processGridMobile');
+  steps.forEach(([n, title, text], i) => {
+    const node = document.createElement('div');
+    node.className = 'reveal relative';
+    node.setAttribute('data-reveal', '');
+    node.style.transitionDelay = (i * 40) + 'ms';
+    node.innerHTML = `
+      <div class="absolute -left-8 top-0 w-[26px] h-[26px] rounded-full bg-paper border-2 border-signal-500/60 flex items-center justify-center text-[11px] font-bold text-signal-600">${n}</div>
+      <h3 class="font-display text-[14.5px] font-bold text-ink mb-0.5">${title}</h3>
+      <p class="text-slate text-[13px] leading-relaxed">${text}</p>`;
+    processGridMobile.appendChild(node);
+  });
+
+  const processDesktop = document.getElementById('processDesktop');
+  const processLineFill = document.getElementById('processLineFill');
+  function updateProcessLine() {
+    if (!processDesktop || window.innerWidth < 1024) return;
+    const rect = processDesktop.getBoundingClientRect();
+    const vh = window.innerHeight;
+    const total = rect.height + vh * 0.6;
+    const passed = vh * 0.85 - rect.top;
+    const progress = Math.min(1, Math.max(0, passed / total));
+    processLineFill.style.transform = `scaleX(${progress})`;
+  }
+  window.addEventListener('scroll', () => requestAnimationFrame(updateProcessLine), { passive: true });
+  window.addEventListener('resize', updateProcessLine);
+
+  // --- Reveal on scroll ---
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function initReveal() {
+    const targets = document.querySelectorAll('[data-reveal]');
+    if (prefersReduced) { targets.forEach(el => el.classList.add('is-visible')); return; }
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) { entry.target.classList.add('is-visible'); io.unobserve(entry.target); }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+    targets.forEach(el => io.observe(el));
+  }
+  initReveal();
+  updateProcessLine();
+
+  // --- Entrada del hero al cargar ---
+  window.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('[data-hero]').forEach(el => requestAnimationFrame(() => el.classList.add('is-in')));
+  });
+
+  // --- Contadores numéricos ---
+  function animateCount(el) {
+    const target = parseInt(el.dataset.count, 10);
+    const suffix = el.dataset.suffix || '';
+    if (prefersReduced || isNaN(target)) { el.textContent = target + suffix; return; }
+    const duration = 900;
+    const start = performance.now();
+    function tick(now) {
+      const p = Math.min(1, (now - start) / duration);
+      const eased = 1 - Math.pow(1 - p, 3);
+      el.textContent = Math.round(eased * target) + suffix;
+      if (p < 1) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  }
+  const statEls = document.querySelectorAll('[data-count]');
+  const statIo = new IntersectionObserver((entries) => {
+    entries.forEach(entry => { if (entry.isIntersecting) { animateCount(entry.target); statIo.unobserve(entry.target); } });
+  }, { threshold: 0.5 });
+  statEls.forEach(el => statIo.observe(el));
+
+  // --- Galería + Lightbox ---
+  const galleryItems = Array.from(document.querySelectorAll('.gallery-item'));
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightboxImg');
+  const lightboxLabel = document.getElementById('lightboxLabel');
+  let currentIndex = 0;
+  function openLightbox(index) {
+    currentIndex = (index + galleryItems.length) % galleryItems.length;
+    const item = galleryItems[currentIndex];
+    lightboxImg.closest('.img-wrap').classList.remove('img-missing');
+    lightboxImg.src = item.dataset.img;
+    lightboxImg.alt = item.dataset.caption || '';
+    lightboxLabel.textContent = item.dataset.img || '';
+    lightbox.classList.remove('hidden'); lightbox.classList.add('flex');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLightbox() {
+    lightbox.classList.add('hidden'); lightbox.classList.remove('flex');
+    document.body.style.overflow = '';
+  }
+  galleryItems.forEach((btn, i) => btn.addEventListener('click', () => openLightbox(i)));
+  document.getElementById('lightboxClose').addEventListener('click', closeLightbox);
+  document.getElementById('lightboxPrev').addEventListener('click', (e) => { e.stopPropagation(); openLightbox(currentIndex - 1); });
+  document.getElementById('lightboxNext').addEventListener('click', (e) => { e.stopPropagation(); openLightbox(currentIndex + 1); });
+  lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeLightbox(); });
+  document.addEventListener('keydown', (e) => {
+    if (lightbox.classList.contains('hidden')) return;
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowLeft') openLightbox(currentIndex - 1);
+    if (e.key === 'ArrowRight') openLightbox(currentIndex + 1);
+  });
+
+  // --- Botón flotante WhatsApp: aparece después de cierto scroll ---
+  const waFloat = document.getElementById('waFloat');
+  function updateWaFloat() { waFloat.classList.toggle('show', window.scrollY > 380); }
+  window.addEventListener('scroll', updateWaFloat, { passive: true });
+  updateWaFloat();
+
+  // --- Formulario: Web3Forms -> redirección a WhatsApp con datos precargados ---
+  function buildWhatsAppMessage(data) {
+    const get = (k) => (data.get(k) || '').toString().trim();
+    const planillas = get('planillas') === 'si'
+      ? 'Tengo planillas de carpintería para enviar y las adjuntaré en este chat.'
+      : 'No tengo planillas para adjuntar.';
+
+    const lines = [
+      'Hola PRW, les envío una consulta.',
+      '',
+      `Nombre: ${get('nombre')}`,
+      `Empresa: ${get('empresa')}`,
+      `Teléfono: ${get('telefono')}`,
+      `Email: ${get('email')}`,
+      `Tipo de obra: ${get('tipo_obra')}`,
+      `Tipo de abertura: ${get('tipo_abertura')}`,
+    ];
+    if (get('metraje')) lines.push(`Metraje aproximado: ${get('metraje')}`);
+    if (get('mensaje')) lines.push(`Consulta: ${get('mensaje')}`);
+    lines.push('', planillas);
+
+    return lines.join('\n');
+  }
+
+  function redirectToWhatsApp(data) {
+    const msg = buildWhatsAppMessage(data);
+    window.location.href = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`;
+  }
+
+  const contactForm = document.getElementById('contactForm');
+  const submitBtn = document.getElementById('submitBtn');
+  const formStatus = document.getElementById('formStatus');
+  const formErrorWaBtn = document.getElementById('formErrorWaBtn');
+
+  contactForm.addEventListener('submit', async function (e) {
+    e.preventDefault();
+    const data = new FormData(contactForm);
+    const originalLabel = submitBtn.textContent;
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Enviando...';
+    formStatus.textContent = '';
+    formStatus.classList.remove('text-signal-600');
+    formErrorWaBtn.classList.add('hidden');
+    formErrorWaBtn.classList.remove('flex');
+
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Accept': 'application/json' },
+        body: data,
+      });
+      const json = await res.json();
+      if (json.success) {
+        // Envío confirmado por Web3Forms: recién ahora redirigimos a WhatsApp con los datos.
+        formStatus.textContent = 'Consulta enviada correctamente. Te redirigimos a WhatsApp para continuar el contacto.';
+        setTimeout(() => redirectToWhatsApp(data), 900);
+      } else {
+        throw new Error(json.message || 'No se pudo enviar el formulario.');
+      }
+    } catch (err) {
+      // Si Web3Forms falla (o la access_key todavía no está configurada), NO redirigimos
+      // automáticamente ni damos a entender que la consulta se envió: mostramos el error
+      // y dejamos un botón directo a WhatsApp (sin datos precargados) como alternativa.
+      formStatus.textContent = 'No pudimos enviar la consulta. Podés contactarnos directamente por WhatsApp.';
+      formStatus.classList.add('text-signal-600');
+      formErrorWaBtn.classList.remove('hidden');
+      formErrorWaBtn.classList.add('flex');
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.textContent = originalLabel;
+    }
+  });
+
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>

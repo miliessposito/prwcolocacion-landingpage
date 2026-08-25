@@ -473,86 +473,88 @@
         </div>
       </div>
 
-      <form id="contactForm" class="bg-mist rounded-2xl border border-line p-6 sm:p-7">
-        <!-- Reemplazar por la Access Key real de Web3Forms (https://web3forms.com) -->
-        <input type="hidden" name="access_key" value="TU_WEB3FORMS_ACCESS_KEY">
-        <input type="hidden" name="subject" value="Nueva consulta desde la web — PRW Colocación">
-        <input type="checkbox" name="botcheck" class="hidden" style="display:none">
+      <form id="contactForm" action="https://api.web3forms.com/submit" method="POST" class="bg-mist rounded-2xl border border-line p-6 sm:p-7">
+  <!-- 1. Clave de Web3Forms (Reemplazá las X por tu Access Key) -->
+  <input type="hidden" name="access_key" value="XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX">
+  <input type="hidden" name="subject" value="Nueva consulta desde la web – PRW Colocación">
+  <input type="checkbox" name="botcheck" class="hidden" style="display:none">
 
-        <div class="grid sm:grid-cols-2 gap-4">
-          <label class="block">
-            <span class="text-[12px] font-medium text-slate mb-1.5 block">Nombre y apellido *</span>
-            <input name="nombre" required type="text" class="w-full bg-white border border-line rounded-lg px-3.5 py-2.5 text-[14.5px] text-ink focus:outline-none focus:border-signal-500 transition-colors"/>
-          </label>
-          <label class="block">
-            <span class="text-[12px] font-medium text-slate mb-1.5 block">Empresa *</span>
-            <input name="empresa" required type="text" class="w-full bg-white border border-line rounded-lg px-3.5 py-2.5 text-[14.5px] text-ink focus:outline-none focus:border-signal-500 transition-colors"/>
-          </label>
-        </div>
+  <div class="grid sm:grid-cols-2 gap-4">
+    <label class="block">
+      <span class="text-[12px] font-medium text-slate mb-1.5 block">Nombre y apellido *</span>
+      <input name="nombre" required type="text" class="w-full bg-white border border-line rounded-lg px-3.5 py-2.5 text-[14.5px] text-ink focus:outline-none focus:border-signal-500 transition-colors" />
+    </label>
+    <label class="block">
+      <span class="text-[12px] font-medium text-slate mb-1.5 block">Empresa *</span>
+      <input name="empresa" required type="text" class="w-full bg-white border border-line rounded-lg px-3.5 py-2.5 text-[14.5px] text-ink focus:outline-none focus:border-signal-500 transition-colors" />
+    </label>
+  </div>
 
-        <div class="grid sm:grid-cols-2 gap-4 mt-4">
-          <label class="block">
-            <span class="text-[12px] font-medium text-slate mb-1.5 block">WhatsApp / Teléfono *</span>
-            <input name="telefono" required type="tel" class="w-full bg-white border border-line rounded-lg px-3.5 py-2.5 text-[14.5px] text-ink focus:outline-none focus:border-signal-500 transition-colors"/>
-          </label>
-          <label class="block">
-            <span class="text-[12px] font-medium text-slate mb-1.5 block">Email *</span>
-            <input name="email" required type="email" class="w-full bg-white border border-line rounded-lg px-3.5 py-2.5 text-[14.5px] text-ink focus:outline-none focus:border-signal-500 transition-colors"/>
-          </label>
-        </div>
+  <div class="grid sm:grid-cols-2 gap-4 mt-4">
+    <label class="block">
+      <span class="text-[12px] font-medium text-slate mb-1.5 block">WhatsApp / Teléfono *</span>
+      <input name="telefono" required type="tel" class="w-full bg-white border border-line rounded-lg px-3.5 py-2.5 text-[14.5px] text-ink focus:outline-none focus:border-signal-500 transition-colors" />
+    </label>
+    <label class="block">
+      <span class="text-[12px] font-medium text-slate mb-1.5 block">Email *</span>
+      <input name="email" required type="email" class="w-full bg-white border border-line rounded-lg px-3.5 py-2.5 text-[14.5px] text-ink focus:outline-none focus:border-signal-500 transition-colors" />
+    </label>
+  </div>
 
-        <div class="grid sm:grid-cols-2 gap-4 mt-4">
-          <label class="block">
-            <span class="text-[12px] font-medium text-slate mb-1.5 block">Tipo de obra</span>
-            <select name="tipo_obra" class="w-full bg-white border border-line rounded-lg px-3.5 py-2.5 text-[14.5px] text-ink focus:outline-none focus:border-signal-500 transition-colors">
-              <option value="Vivienda unifamiliar">Vivienda unifamiliar</option>
-              <option value="Vivienda multifamiliar">Vivienda multifamiliar</option>
-              <option value="Edificio">Edificio</option>
-              <option value="Local comercial">Local comercial</option>
-              <option value="Oficina">Oficina</option>
-              <option value="Obra industrial">Obra industrial</option>
-              <option value="Otro">Otro</option>
-            </select>
-          </label>
-          <label class="block">
-            <span class="text-[12px] font-medium text-slate mb-1.5 block">Tipo de aberturas</span>
-            <select name="tipo_abertura" class="w-full bg-white border border-line rounded-lg px-3.5 py-2.5 text-[14.5px] text-ink focus:outline-none focus:border-signal-500 transition-colors">
-              <option value="PVC">PVC</option>
-              <option value="Aluminio">Aluminio</option>
-              <option value="PVC y aluminio">PVC y aluminio</option>
-              <option value="No estoy seguro">No estoy seguro</option>
-            </select>
-          </label>
-        </div>
+  <div class="grid sm:grid-cols-2 gap-4 mt-4">
+    <label class="block">
+      <span class="text-[12px] font-medium text-slate mb-1.5 block">Tipo de obra</span>
+      <select name="tipo_obra" class="w-full bg-white border border-line rounded-lg px-3.5 py-2.5 text-[14.5px] text-ink focus:outline-none focus:border-signal-500 transition-colors">
+        <option value="Vivienda unifamiliar">Vivienda unifamiliar</option>
+        <option value="Vivienda multifamiliar">Vivienda multifamiliar</option>
+        <option value="Edificio">Edificio</option>
+        <option value="Local comercial">Local comercial</option>
+        <option value="Oficina">Oficina</option>
+        <option value="Obra industrial">Obra industrial</option>
+        <option value="Otro">Otro</option>
+      </select>
+    </label>
+    <label class="block">
+      <span class="text-[12px] font-medium text-slate mb-1.5 block">Tipo de aberturas</span>
+      <select name="tipo_aberturas" class="w-full bg-white border border-line rounded-lg px-3.5 py-2.5 text-[14.5px] text-ink focus:outline-none focus:border-signal-500 transition-colors">
+        <option value="PVC">PVC</option>
+        <option value="Aluminio">Aluminio</option>
+        <option value="PVC y aluminio">PVC y aluminio</option>
+        <option value="No estoy seguro">No estoy seguro</option>
+      </select>
+    </label>
+  </div>
 
-        <div class="grid sm:grid-cols-2 gap-4 mt-4">
-          <label class="block">
-            <span class="text-[12px] font-medium text-slate mb-1.5 block">Cantidad / metraje aproximado</span>
-            <input name="metraje" type="text" placeholder="Opcional" class="w-full bg-white border border-line rounded-lg px-3.5 py-2.5 text-[14.5px] text-ink placeholder:text-slate/40 focus:outline-none focus:border-signal-500 transition-colors"/>
-          </label>
-          <label class="block">
-            <span class="text-[12px] font-medium text-slate mb-1.5 block">¿Tenés planillas de carpintería?</span>
-            <select name="planillas" class="w-full bg-white border border-line rounded-lg px-3.5 py-2.5 text-[14.5px] text-ink focus:outline-none focus:border-signal-500 transition-colors">
-              <option value="no">No</option>
-              <option value="si">Sí</option>
-            </select>
-          </label>
-        </div>
+  <div class="grid sm:grid-cols-2 gap-4 mt-4">
+    <label class="block">
+      <span class="text-[12px] font-medium text-slate mb-1.5 block">Cantidad / metraje aproximado</span>
+      <input name="metraje" type="text" placeholder="Opcional" class="w-full bg-white border border-line rounded-lg px-3.5 py-2.5 text-[14.5px] text-ink placeholder:text-slate/40 focus:outline-none focus:border-signal-500 transition-colors" />
+    </label>
+    <label class="block">
+      <span class="text-[12px] font-medium text-slate mb-1.5 block">¿Tenés planillas de carpintería?</span>
+      <select name="planillas" class="w-full bg-white border border-line rounded-lg px-3.5 py-2.5 text-[14.5px] text-ink focus:outline-none focus:border-signal-500 transition-colors">
+        <option value="no">No</option>
+        <option value="si">Sí</option>
+      </select>
+    </label>
+  </div>
 
-        <label class="block mt-4">
-          <span class="text-[12px] font-medium text-slate mb-1.5 block">Mensaje</span>
-          <textarea name="mensaje" rows="3" class="w-full bg-white border border-line rounded-lg px-3.5 py-2.5 text-[14.5px] text-ink focus:outline-none focus:border-signal-500 transition-colors resize-none"></textarea>
-        </label>
+  <label class="block mt-4">
+    <span class="text-[12px] font-medium text-slate mb-1.5 block">Mensaje</span>
+    <textarea name="mensaje" rows="3" class="w-full bg-white border border-line rounded-lg px-3.5 py-2.5 text-[14.5px] text-ink focus:outline-none focus:border-signal-500 transition-colors resize-none"></textarea>
+  </label>
 
-        <button type="submit" id="submitBtn" class="mt-6 w-full sm:w-auto font-semibold text-[14px] bg-ink hover:bg-ink/90 text-white px-6 py-3.5 rounded-lg transition-colors inline-flex items-center justify-center gap-2">
-          Enviar Consulta y Archivos
-        </button>
-        <p id="formStatus" class="text-[12.5px] text-slate mt-3" role="status" aria-live="polite"></p>
-        <a id="formErrorWaBtn" href="https://wa.me/5491164489161" target="_blank" rel="noopener noreferrer" class="hidden mt-3 items-center justify-center gap-2.5 bg-signal-500 hover:bg-signal-600 text-white font-semibold text-[14px] px-6 py-3.5 rounded-full transition-colors w-full sm:w-auto">
-          <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.32 4.96L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.85 9.85 0 0 0 12.04 2m0 1.67a8.2 8.2 0 0 1 5.83 2.42 8.18 8.18 0 0 1 2.41 5.83c0 4.55-3.7 8.24-8.25 8.24a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.19-.31a8.18 8.18 0 0 1-1.26-4.38c0-4.55 3.7-8.25 8.24-8.25M8.53 6.85c-.16 0-.43.06-.66.31-.22.25-.87.85-.87 2.07 0 1.22.89 2.4 1.01 2.57.13.16 1.75 2.8 4.31 3.82 2.13.85 2.56.68 3.03.64.46-.04 1.5-.61 1.71-1.2s.21-1.09.15-1.2c-.06-.1-.23-.16-.48-.28s-1.5-.74-1.73-.82c-.23-.09-.4-.13-.57.13s-.66.82-.81.99-.3.19-.55.06c-.26-.12-1.07-.39-2.03-1.25-.75-.67-1.26-1.5-1.4-1.75-.15-.26-.02-.4.11-.52.11-.11.26-.3.38-.44.13-.15.17-.26.26-.43.08-.16.04-.31-.02-.43-.06-.13-.57-1.4-.79-1.91-.2-.5-.41-.43-.57-.44-.14-.01-.31-.01-.48-.01Z"/></svg>
-          Contactar por WhatsApp
-        </a>
-      </form>
+  <button type="submit" id="submitBtn" class="mt-6 w-full sm:w-auto font-semibold text-[14px] bg-ink hover:bg-ink/90 text-white px-6 py-3.5 rounded-lg transition-colors inline-flex items-center justify-center gap-2">
+    Enviar Consulta y Archivos
+  </button>
+
+  <p id="formStatus" class="text-[12.5px] text-slate mt-3" role="status" aria-live="polite"></p>
+  
+  <a id="formErrorWaBtn" href="https://wa.me/5491164489161" target="_blank" rel="noopener noreferrer" class="hidden mt-3 items-center justify-center gap-2.5 bg-signal-500 hover:bg-signal-600 text-white px-4 py-2.5 rounded-lg text-[13px] font-medium transition-colors">
+    <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.32 4.96L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"/></svg>
+    Contactar por WhatsApp
+  </a>
+</form>
     </div>
   </div>
 </section>
